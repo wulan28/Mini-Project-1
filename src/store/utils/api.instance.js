@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// @create instance
 const api = axios.create({
     baseURL : import.meta.env.VITE_APP_API_URL,
     // baseURL: "https://minpro-blog.purwadhikabootcamp.com/api",
@@ -8,7 +7,6 @@ const api = axios.create({
 })
 
 
-// @interceptor
 api.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem("token");
