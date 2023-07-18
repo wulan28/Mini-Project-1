@@ -2,9 +2,9 @@ import { Button, Label, Spinner, TextInput, Toast } from "flowbite-react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { resetPassword } from "../../clients/auth";
 import { HiXCircle, HiXMark } from "react-icons/hi2";
 import { resetPasswordValidationSchema } from "../../utils/validation/auth";
+import { reset_password } from "../../store/slices/auth/slices";
 
 export default function ResetPassword() {
   const [loading, setLoading] = useState(false);
@@ -34,7 +34,7 @@ export default function ResetPassword() {
           }}
           onSubmit={(values) => {
             setLoading(true);
-            resetPassword(token, values)
+            reset_password(values)
               .then((res) => {
                 setShowToast(false);
                 console.log(res);
